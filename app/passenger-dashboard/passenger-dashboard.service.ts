@@ -1,33 +1,39 @@
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import "rxjs/add/operator/map";
+
 import { Passenger } from './models/passenger.interface';
+import { Bored } from './models/bored.interface';
 
+const PASSENGER_API: string = "api/passengers";
+const BORED = "http://www.boredapi.com/api/activity/";
+
+@Injectable()
 export class PassengerDashboardService {
-  constructor(){}
 
-  getPassengers(): Passenger[] {
-    return [{
-      id: 1,
-      fullname: "Pavel",
-      checkedIn: true,
-      checkInDate: 1490742000000,
-      children: null
-    }, {
-      id: 2,
-      fullname: "Olik",
-      checkedIn: true,
-      checkInDate: 149074200000,
-      children: null
-    }, {
-      id: 3,
-      fullname: "Diman",
-      checkedIn: false,
-      checkInDate: null,
-      children: null
-    }, {
-      id: 4,
-      fullname: "Oliver",
-      checkedIn: true,
-      checkInDate: 1497748000000,
-      children: [{name: "Melissa", age: 12},{name: "Antony", age: 5}]
-    }]
+  constructor(private http: Http){}
+
+  getPassengers(): Observable<Passenger[]> {
+    return this.http
+      .get(PASSENGER_API)
+      .map((response: Response) => response.json()); 
+  }
+
+  updatePassenger(passenger: Passenger): Observable<Passenger> {
+    return this.http
+      .put(`${PASSENGER_API}/${passenger.id}`, passenger)
+      .map((response: Response) => response.json()); 
+  }
+
+  deletePassenger(passenger: Passenger): Observable<Passenger> {
+    return this.http
+      .delete(`${PASSENGER_API}/${passenger.id}`)
+      .map((response: Response) => response.json()); 
+  }
+
+  getBored(): Observable<Bored>{
+    return this.http.get(BORED).map((response: Response) => response.json());
   }
 }
