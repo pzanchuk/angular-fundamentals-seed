@@ -8,11 +8,11 @@
       "checkInDate": 149033200000
     },
     {
+      "fullname": "Olik Z",
       "id": 2,
-      "fullname": "Olik",
       "checkedIn": true,
-      "checkInDate": 149074200000,
-      "baggage": "hand-only"
+      "baggage": "hand-only",
+      "checkInDate": 149074200000
     },
     {
       "id": 3,
