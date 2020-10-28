@@ -41,7 +41,7 @@ export class PassengerDashboardComponent implements OnInit {
       .getBored().subscribe((data: Bored) =>{ this.bored = data;
         console.log(this.bored);
       });
-    }
+  }
 
   handleRemove(event: Passenger){
     this.passengerService
