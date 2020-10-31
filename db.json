@@ -8,7 +8,7 @@
       "checkInDate": 149033200000
     },
     {
-      "fullname": "Olik Z",
+      "fullname": "Olik ZZZ",
       "id": 2,
       "checkedIn": true,
       "baggage": "hand-only",
@@ -22,17 +22,16 @@
       "baggage": "hand-only"
     },
     {
-      "id": 4,
       "fullname": "Tyler",
+      "id": 4,
       "checkedIn": true,
-      "checkInDate": null,
-      "baggage": "hold-only"
+      "baggage": "hold-only",
+      "checkInDate": 1603919633407
     },
     {
+      "fullname": "Norman Warner",
       "id": 5,
-      "fullname": "Norman",
-      "checkedIn": true,
-      "checkInDate": null,
+      "checkedIn": false,
       "baggage": "hold-only"
     },
     {
@@ -48,6 +47,12 @@
       "checkedIn": true,
       "checkInDate": 1497748000000,
       "baggage": ""
+    },
+    {
+      "fullname": "Olenka Busi4ka",
+      "id": 14,
+      "checkedIn": false,
+      "baggage": "hand-hold"
     }
   ]
 }

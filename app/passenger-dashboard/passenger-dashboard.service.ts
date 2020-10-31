@@ -7,10 +7,9 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 
 import { Passenger } from './models/passenger.interface';
-import { Bored } from './models/bored.interface';
 
 const PASSENGER_API: string = "api/passengers";
-const BORED = "http://www.boredapi.com/api/activity/";
+
 
 @Injectable()
 export class PassengerDashboardService {
@@ -51,7 +50,11 @@ export class PassengerDashboardService {
       .catch((error: any) => Observable.throw(error.json())); 
   }
 
-  getBored(): Observable<Bored>{
-    return this.http.get(BORED).map((response: Response) => response.json());
+  createPassenger(passenger: Passenger): Observable<Passenger> {
+    return this.http
+    .post(PASSENGER_API, passenger)
+    .map((response: Response) => response.json())
+    .catch((error: any) => Observable.throw(error.json())); 
   }
+
 }

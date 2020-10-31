@@ -106,9 +106,5 @@ export class PassengerFormComponent {
       this.update.emit(passenger);
     }
   }
-  
-  constructor() {
-    
-  }
 
 }

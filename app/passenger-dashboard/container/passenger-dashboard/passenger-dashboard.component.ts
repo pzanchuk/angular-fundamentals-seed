@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 
 import { Passenger } from '../../models/passenger.interface';
 
-import { Bored } from '../../models/bored.interface';
-
 import { PassengerDashboardService } from '../../passenger-dashboard.service';
 
 
@@ -13,7 +11,6 @@ import { PassengerDashboardService } from '../../passenger-dashboard.service';
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
     <div>
-      <div>{{bored?.activity}}</div>
       <passenger-count
         [items] = "passengers">
       </passenger-count>
@@ -24,14 +21,13 @@ import { PassengerDashboardService } from '../../passenger-dashboard.service';
         (remove) = "handleRemove($event)"
         (view) = "handleView($event)">
       </passenger-detail>
+      
     </div>
   `
 })
 
 export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
-
-  bored: Bored;
 
   constructor(
     private router: Router,
@@ -42,11 +38,6 @@ export class PassengerDashboardComponent implements OnInit {
     this.passengerService
       .getPassengers()
       .subscribe((data: Passenger[]) => this.passengers = data);
-
-    this.passengerService
-      .getBored().subscribe((data: Bored) =>{ this.bored = data;
-        console.log(this.bored);
-      });
   }
 
   handleRemove(event: Passenger){

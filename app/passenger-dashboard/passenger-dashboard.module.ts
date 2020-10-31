@@ -12,6 +12,7 @@ import { PassengerViewerComponent } from './container/passenger-viewer/passenger
 import { PassengerCountComponent } from './components/passenger-count/passenger-count.component';
 import { PassengerDetailComponent } from './components/passenger-detail/passenger-detail.component';
 import { PassengerFormComponent} from './components/passenger-form/passenger-form.component';
+import { PassengerNewComponent } from './components/passenger-new/passenger-new.component';
 
 //service
 import { PassengerDashboardService } from './passenger-dashboard.service';
@@ -21,9 +22,10 @@ const routes: Routes = [
     path: 'passengers',
     children: [
       { path: '', component: PassengerDashboardComponent },
-      { path: ':id', component: PassengerViewerComponent }
+      { path: 'new', component: PassengerNewComponent},
+      { path: ':id', component: PassengerViewerComponent },    
     ]
-  }
+  },
 ]
 
 @NgModule({
@@ -32,7 +34,8 @@ const routes: Routes = [
     PassengerViewerComponent,
     PassengerCountComponent,
     PassengerDetailComponent,
-    PassengerFormComponent
+    PassengerFormComponent,
+    PassengerNewComponent
   ],
   imports: [
     CommonModule,

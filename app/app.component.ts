@@ -41,6 +41,11 @@ export class AppComponent {
     {
       link: '/passengers',
       name: 'Passengers',
+      exact: true
+    },
+    {
+      link: '/passengers/new',
+      name: 'Create Passenger',
       exact: false
     }
   ];
